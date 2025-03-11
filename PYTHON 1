@@ -1,0 +1,40 @@
+import re
+
+def obter_estado(cpf):
+    # Dicionário que mapeia o primeiro dígito do CPF para o estado
+    estados = {
+        '1': 'Distrito Federal, Goiás, Mato Grosso, Mato Grosso do Sul',
+        '2': 'São Paulo',
+        '3': 'Rio de Janeiro, Espírito Santo',
+        '4': 'Minas Gerais',
+        '5': 'Bahia, Sergipe',
+        '6': 'Paraná',
+        '7': 'Santa Catarina',
+        '8': 'Rio Grande do Sul',
+        '9': 'Acre, Amazonas, Roraima, Rondônia, Pará, Amapá, Maranhão, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Goiás'
+    }
+    
+    # O primeiro dígito do CPF indica o estado
+    primeiro_digito = cpf[8]  # O 9º dígito (considerando zero-index)
+    
+    return estados.get(primeiro_digito, 'Estado não encontrado')
+
+def verificar_cpf():
+    # Solicita o CPF do usuário
+    cpf_input = input("Digite o número do CPF (com ou sem pontuação): ")
+    
+    # Remove todos os caracteres que não são números
+    cpf_limpo = re.sub(r'\D', '', cpf_input)
+    
+    # Verifica se o CPF tem exatamente 11 dígitos
+    if len(cpf_limpo) != 11:
+        print("CPF INVÁLIDO")
+        return
+    
+    # Identifica o estado com base no CPF
+    estado = obter_estado(cpf_limpo)
+    
+    print(f"O CPF informado é de um(a) residente no estado: {estado}")
+
+# Chama a função principal
+verificar_cpf()

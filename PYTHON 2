@@ -1,0 +1,18 @@
+# Função para verificar se os lados formam um triângulo válido
+def verifica_triangulo(a, b, c):
+    # Verifica a condição de existência de um triângulo
+    if a + b > c and a + c > b and b + c > a:
+        return True
+    else:
+        return False
+
+# Recebe os valores dos lados
+lado1 = float(input("Digite o valor do primeiro lado: "))
+lado2 = float(input("Digite o valor do segundo lado: "))
+lado3 = float(input("Digite o valor do terceiro lado: "))
+
+# Verifica e exibe se os lados formam um triângulo válido
+if verifica_triangulo(lado1, lado2, lado3):
+    print("True")
+else:
+    print("False")

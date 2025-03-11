@@ -1,0 +1,18 @@
+# Função para verificar o login e senha
+def sistema_login():
+    # Definindo as credenciais corretas
+    login_correto = "admin"
+    senha_correta = "4321"
+
+    # Solicitar ao usuário que insira o login e senha
+    login = input("Digite o login: ")
+    senha = input("Digite a senha: ")
+
+    # Verificar se as credenciais estão corretas
+    if login == login_correto and senha == senha_correta:
+        print("Acesso Permitido")
+    else:
+        print("Acesso Negado")
+
+# Chama a função para rodar o sistema de login
+sistema_login()

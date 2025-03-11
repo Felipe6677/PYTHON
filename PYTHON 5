@@ -1,0 +1,29 @@
+# Função para verificar se os lados formam um triângulo válido
+def verifica_triangulo(a, b, c):
+    if a + b > c and a + c > b and b + c > a:
+        return True
+    return False
+
+# Função para determinar o tipo do triângulo
+def tipo_triangulo(a, b, c):
+    if a == b == c:
+        return "Equilátero"
+    elif a == b or b == c or a == c:
+        return "Isósceles"
+    else:
+        return "Escaleno"
+
+# Solicita os três lados ao usuário
+try:
+    a = float(input("Digite o comprimento do primeiro lado: "))
+    b = float(input("Digite o comprimento do segundo lado: "))
+    c = float(input("Digite o comprimento do terceiro lado: "))
+
+    # Verifica se os lados formam um triângulo válido
+    if verifica_triangulo(a, b, c):
+        # Exibe o tipo de triângulo
+        print(f"O triângulo é {tipo_triangulo(a, b, c)}.")
+    else:
+        print("Os valores informados não formam um triângulo válido.")
+except ValueError:
+    print("Por favor, insira valores numéricos válidos.")
